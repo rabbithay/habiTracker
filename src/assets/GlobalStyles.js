@@ -57,16 +57,19 @@ const GlobalStyle = createGlobalStyle`
         }
         -ms-overflow-style: none;
         scrollbar-width: none;
-    
     }
     button{
         border: none;
     }
-    a{
+    a, :link{
         text-decoration: none;
     }
     body{
-        background-color: #1d1c26;
+        /* background-color: #1d1c26; */
+        font-family: 'Lexend Deca';
+
     }
+    
+
 `;
 export default GlobalStyle;
