@@ -1,20 +1,29 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useContext, useState } from 'react';
+import { Link, useHistory } from 'react-router-dom';
 import styled from 'styled-components';
 import logo from '../../assets/img/logo.svg';
+import UserContext from '../../context/UserContext';
 import { postLogin } from '../../services/user';
 
 export default function SignIn() {
+  const { user, setUser } = useContext(UserContext);
+  const history = useHistory();
+
+  if (user && user.token) {
+    history.push('/hoje');
+  }
+
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
   function confirmLogin(e) {
     e.preventDefault();
     const body = { email, password };
-    postLogin(body).then((req) => {
-      console.log(req);
+    postLogin(body).then((res) => {
+      setUser(res.data);
     }).catch((error) => {
       console.log(error);
+      // tratar erros
     }).finally(() => {
       // desabilita o loader
     });
