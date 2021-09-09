@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import styled from 'styled-components';
 import Loader from 'react-loader-spinner';
 import logo from '../../assets/img/logo.svg';
@@ -11,16 +11,17 @@ export default function SignUp() {
   const [image, setImage] = useState('');
   const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
+  const history = useHistory();
 
   function confirmLogin(e) {
     e.preventDefault();
     setLoading(true);
-
     const body = {
       email, name, image, password,
     };
     postSignUp(body).then((res) => {
       console.log(res);
+      history.push('/');
     }).catch((error) => {
       console.log(error);
       alert('erro');
