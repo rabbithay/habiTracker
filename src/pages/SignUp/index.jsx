@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
+import Loader from 'react-loader-spinner';
 import logo from '../../assets/img/logo.svg';
 import { postSignUp } from '../../services/user';
 
@@ -9,9 +10,12 @@ export default function SignUp() {
   const [name, setName] = useState('');
   const [image, setImage] = useState('');
   const [password, setPassword] = useState('');
+  const [loading, setLoading] = useState(false);
 
   function confirmLogin(e) {
     e.preventDefault();
+    setLoading(true);
+
     const body = {
       email, name, image, password,
     };
@@ -19,8 +23,9 @@ export default function SignUp() {
       console.log(res);
     }).catch((error) => {
       console.log(error);
+      alert('erro');
     }).finally(() => {
-      // desabilita o loader
+      setLoading(false);
     });
   }
 
@@ -52,7 +57,9 @@ export default function SignUp() {
           value={image}
           onChange={(e) => { setImage(e.target.value); }}
         />
-        <button type="submit">Cadastrar</button>
+        <button type="submit" loading={loading}>
+          {(loading) ? <Loader type="ThreeDots" color="#fff" height={13} width={51} /> : 'Cadastrar'}
+        </button>
       </Form>
       <Link to="/">Já tem uma conta? Faça login!</Link>
     </Login>
@@ -73,7 +80,6 @@ const Login = styled.div`
     color: #52B6FF;
     text-decoration-line: underline;
   }
-  
 `;
 
 const Form = styled.form`
@@ -102,6 +108,8 @@ const Form = styled.form`
     color: #fff;
     font-size: 18px;
     font-weight: 500;
+    opacity: ${(props) => (props.loading ? 0.6 : 1)};
+
     .disabled {
       opacity: 0.6;
       cursor: not-allowed;
@@ -111,5 +119,4 @@ const Form = styled.form`
       transform: translateY(1px);
     }
   }
-  
 `;
