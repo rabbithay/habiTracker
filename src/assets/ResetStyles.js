@@ -1,6 +1,6 @@
 import { createGlobalStyle } from 'styled-components';
 
-const GlobalStyle = createGlobalStyle`
+const ResetStyles = createGlobalStyle`
     /* http://meyerweb.com/eric/tools/css/reset/ 
     v2.0 | 20110126
     License: none (public domain)
@@ -63,6 +63,8 @@ const GlobalStyle = createGlobalStyle`
     }
     a, :link{
         text-decoration: none;
+        color: inherit;
+
     }
     body{
         /* background-color: #1d1c26; */
@@ -72,4 +74,4 @@ const GlobalStyle = createGlobalStyle`
     
 
 `;
-export default GlobalStyle;
+export default ResetStyles;
