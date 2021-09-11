@@ -8,12 +8,10 @@ export default function Today() {
     <>
       <Header />
       <Body>
-        <div>
-          <h2>
-            Segunda, 17/05
-          </h2>
-          <h3>Nenhum hábito concluído ainda</h3>
-        </div>
+        <h2>
+          Segunda, 17/05
+        </h2>
+        <h3>Nenhum hábito concluído ainda</h3>
       </Body>
       <Menu />
     </>

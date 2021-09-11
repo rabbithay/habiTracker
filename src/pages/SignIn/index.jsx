@@ -1,10 +1,10 @@
 import React, { useContext, useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
-import Loader from 'react-loader-spinner';
 import logo from '../../assets/img/logo.svg';
 import UserContext from '../../context/UserContext';
 import { postLogin } from '../../services/user';
 import { Login, Form } from '../../assets/StyledComponents';
+import ThreeDotsLoader from '../../components/Loader';
 
 export default function SignIn() {
   const { user, setUser } = useContext(UserContext);
@@ -51,7 +51,7 @@ export default function SignIn() {
         />
         <button type="submit">
           {(loading)
-            ? <Loader type="ThreeDots" color="#fff" height={13} width={51} />
+            ? <ThreeDotsLoader />
             : 'Entrar'}
         </button>
       </Form>

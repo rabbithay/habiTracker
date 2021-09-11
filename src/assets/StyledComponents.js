@@ -56,31 +56,44 @@ const Form = styled.form`
 `;
 
 const Body = styled.div`
-    background-color: #E5E5E5;
-    width: 100%;
-    height: 100%;
-    min-width: 100vw;
-    min-height: 100vh;
-    padding: 70px 18px;
-    h2 {
-        font-size: 23px;
-        color: #126BA5;
-    }
-    h3{
-        font-size: 18px;
-        color: #BABABA;
-        /* color: #8FC549; */
-    }
-    p{
-        font-size: 18px;
-        color: #666;
-    }
-    button {
-        width: 40px;
-        height: 35px;
-        background-color: #52B6FF;
-        color: white;
-    }
+  background-color: #E5E5E5;
+  width: 100%;
+  height: 100%;
+  min-width: 100vw;
+  min-height: 100vh;
+  padding: 98px 18px 70px 18px;
+  h2 {
+      font-size: 23px;
+      color: #126BA5;
+  }
+  h3{
+      font-size: 18px;
+      color: #BABABA;
+      /* color: #8FC549; */
+  }
+  p{
+      font-size: 18px;
+      color: #666;
+  }
+  div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
 `;
 
-export { Login, Form, Body };
+const NewHabitButton = styled.button`
+  width: 40px;
+  height: 35px;
+  background-color: #52B6FF;
+  color: white;
+  font-size: 27px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+`;
+
+export {
+  Login, Form, Body, NewHabitButton,
+};

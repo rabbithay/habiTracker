@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
-import Loader from 'react-loader-spinner';
 import logo from '../../assets/img/logo.svg';
 import { postSignUp } from '../../services/user';
 import { Login, Form } from '../../assets/StyledComponents';
+import ThreeDotsLoader from '../../components/Loader';
 
 export default function SignUp() {
   const [email, setEmail] = useState('');
@@ -35,31 +35,35 @@ export default function SignUp() {
       <img alt="logo" src={logo} />
       <Form onSubmit={(e) => { confirmLogin(e); }}>
         <input
-          type="text"
+          required
+          type="email"
           placeholder="email"
           value={email}
           onChange={(e) => { setEmail(e.target.value); }}
         />
         <input
+          required
           type="password"
           placeholder="senha"
           value={password}
           onChange={(e) => { setPassword(e.target.value); }}
         />
         <input
+          required
           type="text"
           placeholder="nome"
           value={name}
           onChange={(e) => { setName(e.target.value); }}
         />
         <input
-          type="text"
+          required
+          type="url"
           placeholder="foto"
           value={image}
           onChange={(e) => { setImage(e.target.value); }}
         />
         <button type="submit" loading={loading}>
-          {(loading) ? <Loader type="ThreeDots" color="#fff" height={13} width={51} /> : 'Cadastrar'}
+          {(loading) ? <ThreeDotsLoader /> : 'Cadastrar'}
         </button>
       </Form>
       <Link to="/">Já tem uma conta? Faça login!</Link>
