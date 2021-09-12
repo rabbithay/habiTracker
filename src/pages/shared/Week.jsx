@@ -3,11 +3,11 @@ import React from 'react';
 import styled from 'styled-components';
 import DayMarker from './Day';
 
-export default function Week({ week, updatedDays }) {
+export default function Week({ week, updatedDays, loading }) {
   return (
     <WeekBox>
       {week.map((d) => (
-        <DayMarker marker={d} updatedDays={updatedDays || (() => {})} />
+        <DayMarker marker={d} loading={loading} updatedDays={updatedDays || (() => {})} />
       ))}
     </WeekBox>
   );

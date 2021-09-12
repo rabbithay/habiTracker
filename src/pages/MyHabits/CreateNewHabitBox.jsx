@@ -36,10 +36,14 @@ export default function CreateNewHabitBox({ setOpenNewHabitBox, renderMyHabits, 
       renderMyHabits();
     }).catch((error) => {
       console.log(error);
-      alert('occorreu um erro. por favor, tente novamente em instantes.');
+      alert('ocorreu um erro. por favor, tente novamente.');
     }).finally(() => {
       setLoading(false);
     });
+    setOpenNewHabitBox(false);
+  }
+  function cancelButton() {
+    setOpenNewHabitBox(false);
   }
 
   return (
@@ -53,11 +57,12 @@ export default function CreateNewHabitBox({ setOpenNewHabitBox, renderMyHabits, 
       <Week
         week={week}
         updatedDays={updatedDays}
+        loading={loading}
       />
       <div>
         <Cancel
           type="button"
-          onClick={() => setOpenNewHabitBox(false)}
+          onClick={() => cancelButton()}
         >
           Cancel
         </Cancel>
@@ -108,6 +113,9 @@ const SaveButton = styled.button`
     right: 18px;
     bottom: 15px;
     font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 `;
 const Cancel = styled.button`
     width: 84px;

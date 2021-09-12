@@ -3,11 +3,16 @@ import React from 'react';
 import styled from 'styled-components';
 
 export default function DayMarker({
-  updatedDays, marker,
+  updatedDays, marker, loading,
 }) {
   const { day, clicked } = marker;
   return (
-    <Day type="button" clicked={clicked} onClick={() => updatedDays(marker)}>
+    <Day
+      disable={loading}
+      type="button"
+      clicked={clicked}
+      onClick={() => updatedDays(marker)}
+    >
       <p>{day}</p>
     </Day>
 

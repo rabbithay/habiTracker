@@ -37,13 +37,14 @@ export default function MyHabits() {
             +
           </NewHabitButton>
         </div>
-        {(openNewHabitBox) && (
-        <CreateNewHabitBox
-          renderMyHabits={renderMyHabits}
-          setOpenNewHabitBox={setOpenNewHabitBox}
-          config={config}
-        />
-        ) }
+        {(openNewHabitBox)
+          && (
+            <CreateNewHabitBox
+              renderMyHabits={renderMyHabits}
+              setOpenNewHabitBox={setOpenNewHabitBox}
+              config={config}
+            />
+          ) }
 
         {(habitsList.length === 0)
           ? (

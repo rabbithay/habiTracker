@@ -61,7 +61,7 @@ const Body = styled.div`
   height: 100%;
   min-width: 100vw;
   min-height: 100vh;
-  padding: 98px 18px 70px 18px;
+  padding: 98px 18px 98px 18px;
   h2 {
       font-size: 23px;
       color: #126BA5;
