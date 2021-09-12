@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import GlobalStyle from './assets/GlobalStyles';
+import GlobalStyle from './assets/GlobalStyle';
 import Percent from './context/Percentext';
 import UserContext from './context/UserContext';
 import useLocalStorage from './hook/useLocalStorage';

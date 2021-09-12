@@ -63,6 +63,8 @@ const GlobalStyle = createGlobalStyle`
     }
     a, :link{
         text-decoration: none;
+        color: inherit;
+
     }
     body{
         /* background-color: #1d1c26; */
