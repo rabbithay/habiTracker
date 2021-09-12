@@ -39,7 +39,7 @@ export default function MyHabit({ habit, renderMyHabits }) {
       <div>
         <h1>{name}</h1>
       </div>
-      <Week week={weekDays} UpdatedDays={() => {}} />
+      <Week week={weekDays} updatedDays={() => {}} />
       <Trash onClick={() => reqDeleteHabit()} src={trash} />
     </HabitContainer>
   );

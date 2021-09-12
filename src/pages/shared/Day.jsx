@@ -7,7 +7,7 @@ export default function DayMarker({
 }) {
   return (
 
-    <Day type="button" clicked={clicked} onClick={() => updatedDays(marker)}>
+    <Day type="button" clicked={clicked} onClick={() => updatedDays && updatedDays(marker)}>
       <p>{day}</p>
     </Day>
 
