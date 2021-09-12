@@ -1,15 +1,23 @@
 /* eslint-disable react/jsx-no-bind */
 /* eslint-disable react/prop-types */
+/* eslint-disable no-debugger */
+
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import ThreeDotsLoader from '../shared/Loader';
 import { postHabit } from '../../services/trackit';
 import Week from '../shared/Week';
-import weekDays from '../../assets/weekDays';
 
 export default function CreateNewHabitBox({ setOpenNewHabitBox, renderMyHabits, config }) {
   const [habitName, setHabitName] = useState('');
-  const [week, setWeek] = useState(weekDays);
+  const [week, setWeek] = useState([
+    { day: 'D', clicked: false },
+    { day: 'S', clicked: false },
+    { day: 'T', clicked: false },
+    { day: 'Q', clicked: false },
+    { day: 'Q', clicked: false },
+    { day: 'S', clicked: false },
+    { day: 'S', clicked: false }]);
   const [loading, setLoading] = useState(false);
 
   function updatedDays(day) {
@@ -17,22 +25,17 @@ export default function CreateNewHabitBox({ setOpenNewHabitBox, renderMyHabits, 
     day.clicked = !day.clicked;
     setWeek([...week]);
   }
-  function saveNewHabit(event) {
-    event.preventDefault();
+  function saveNewHabit() {
     setLoading(true);
-    const selectedDays = [];
-    week.forEach((d, i) => {
-      if (d.clicked) {
-        selectedDays.push(i);
-      }
-    });
+    const selectedDays = week.filter((d) => (d.clicked)).map((d, i) => i);
     const body = {
       name: habitName,
       days: selectedDays,
     };
     postHabit(body, config).then(() => {
       renderMyHabits();
-    }).catch(() => {
+    }).catch((error) => {
+      console.log(error);
       alert('occorreu um erro. por favor, tente novamente em instantes.');
     }).finally(() => {
       setLoading(false);
@@ -49,20 +52,18 @@ export default function CreateNewHabitBox({ setOpenNewHabitBox, renderMyHabits, 
       />
       <Week
         week={week}
-        // eslint-disable-next-line react/jsx-no-bind
         updatedDays={updatedDays}
       />
       <div>
         <Cancel
           type="button"
           onClick={() => setOpenNewHabitBox(false)}
-          src="/"
         >
           Cancel
         </Cancel>
         <SaveButton
-          onClick={saveNewHabit}
-          loading={loading}
+          onClick={() => saveNewHabit()}
+          disable={loading}
         >
           { (loading)
             ? <ThreeDotsLoader />

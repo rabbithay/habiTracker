@@ -17,8 +17,8 @@ function App() {
   const [percent, setPercent] = useState(0);
 
   return (
-    <UserContext.Provider value={{ user, setUser }}>
-      <Router>
+    <Router>
+      <UserContext.Provider value={{ user, setUser }}>
         <GlobalStyle />
         <Switch>
           <Route path="/" exact component={SignIn} />
@@ -29,8 +29,8 @@ function App() {
             <Route path="/historico" exact component={History} />
           </Percent.Provider>
         </Switch>
-      </Router>
-    </UserContext.Provider>
+      </UserContext.Provider>
+    </Router>
 
   );
 }

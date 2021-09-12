@@ -13,15 +13,14 @@ export default function MyHabits() {
   const [openNewHabitBox, setOpenNewHabitBox] = useState(false);
   const config = useAuthConfig();
 
-  async function renderMyHabits() {
-    try {
-      const response = await getHabits(config);
+  function renderMyHabits() {
+    getHabits(config).then((response) => {
       setHabitsList(response.data);
-    } catch (e) {
+    }).catch((e) => {
       console.log(e);
-    }
+    });
   }
-  useEffect(renderMyHabits, []);
+  useEffect(() => { renderMyHabits(); }, []);
 
   return (
     <>
@@ -38,7 +37,13 @@ export default function MyHabits() {
             +
           </NewHabitButton>
         </div>
-        {(openNewHabitBox) ? <CreateNewHabitBox setOpenNewHabitBox={setOpenNewHabitBox} config={config} /> : '' }
+        {(openNewHabitBox) && (
+        <CreateNewHabitBox
+          renderMyHabits={renderMyHabits}
+          setOpenNewHabitBox={setOpenNewHabitBox}
+          config={config}
+        />
+        ) }
 
         {(habitsList.length === 0)
           ? (

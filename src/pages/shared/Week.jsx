@@ -1,13 +1,13 @@
 /* eslint-disable react/prop-types */
 import React from 'react';
 import styled from 'styled-components';
-import Day from './Day';
+import DayMarker from './Day';
 
 export default function Week({ week, updatedDays }) {
   return (
     <WeekBox>
-      {week.map((d, i) => (
-        <Day marker={d} day={d.day} clicked={d.clicked} i={i} updatedDays={updatedDays} />
+      {week.map((d) => (
+        <DayMarker marker={d} updatedDays={updatedDays || (() => {})} />
       ))}
     </WeekBox>
   );

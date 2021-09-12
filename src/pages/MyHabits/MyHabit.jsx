@@ -5,7 +5,6 @@
 import React from 'react';
 import styled from 'styled-components';
 import Week from '../shared/Week';
-import weekDays from '../../assets/weekDays';
 import { deleteHabit } from '../../services/trackit';
 import useAuthConfig from '../../hook/authConfig';
 import trash from '../../assets/img/trash.svg';
@@ -13,8 +12,15 @@ import trash from '../../assets/img/trash.svg';
 export default function MyHabit({ habit, renderMyHabits }) {
   const { name, days, id } = habit;
   const config = useAuthConfig();
+  const daysOfWeek = [{ day: 'D', clicked: false },
+    { day: 'S', clicked: false },
+    { day: 'T', clicked: false },
+    { day: 'Q', clicked: false },
+    { day: 'Q', clicked: false },
+    { day: 'S', clicked: false },
+    { day: 'S', clicked: false }];
 
-  weekDays.forEach((d, i) => {
+  daysOfWeek.forEach((d, i) => {
     days.forEach((j) => {
       if (i === j) {
         // eslint-disable-next-line no-param-reassign
@@ -34,12 +40,11 @@ export default function MyHabit({ habit, renderMyHabits }) {
     }
   }
   return (
-
     <HabitContainer>
       <div>
         <h1>{name}</h1>
       </div>
-      <Week week={weekDays} updatedDays={() => {}} />
+      <Week week={daysOfWeek} />
       <Trash onClick={() => reqDeleteHabit()} src={trash} />
     </HabitContainer>
   );

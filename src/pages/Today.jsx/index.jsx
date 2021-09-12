@@ -24,7 +24,7 @@ export default function Today() {
     }
   }
 
-  useEffect(renderTodayHabit, []);
+  useEffect(() => { renderTodayHabit(); }, []);
 
   return (
     <div>
