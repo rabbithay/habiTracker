@@ -34,24 +34,28 @@ export default function SignUp() {
       <img alt="logo" src={logo} />
       <Form onSubmit={(e) => { confirmLogin(e); }}>
         <input
+          required
           type="text"
           placeholder="email"
           value={email}
           onChange={(e) => { setEmail(e.target.value); }}
         />
         <input
+          required
           type="password"
           placeholder="senha"
           value={password}
           onChange={(e) => { setPassword(e.target.value); }}
         />
         <input
+          required
           type="text"
           placeholder="nome"
           value={name}
           onChange={(e) => { setName(e.target.value); }}
         />
         <input
+          required
           type="text"
           placeholder="foto"
           value={image}

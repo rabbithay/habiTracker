@@ -37,12 +37,14 @@ export default function SignIn() {
       <img alt="logo" src={logo} />
       <Form onSubmit={(e) => { confirmLogin(e); }}>
         <input
-          type="text"
+          required
+          type="email"
           placeholder="email"
           value={email}
           onChange={(e) => { setEmail(e.target.value); }}
         />
         <input
+          required
           type="password"
           placeholder="senha"
           value={password}
