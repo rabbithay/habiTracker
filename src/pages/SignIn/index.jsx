@@ -24,12 +24,11 @@ export default function SignIn() {
     const body = { email, password };
     postLogin(body).then((res) => {
       setUser(res.data);
-      history.push('/hoje');
-    }).catch((error) => {
-      console.log(error);
-      alert('erro');
+    }).catch(() => {
+      alert('ocorreu um erro. por favor, tente novamente.');
     }).finally(() => {
       setLoading(false);
+      history.push('/hoje');
     });
   }
 
