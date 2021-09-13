@@ -59,7 +59,7 @@ const HabitContainer = styled.div`
   padding: 13px 10px 15px 15px;
   align-items: flex-start !important;
   position: relative;
-  margin-top: 30px;
+  margin-top: 10px;
   h1{
     margin-bottom: 3px;
     color: #666666;

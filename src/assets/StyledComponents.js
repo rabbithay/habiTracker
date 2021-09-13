@@ -68,10 +68,8 @@ const Body = styled.div`
     }
   h3{
       font-size: 18px;
-      color: #BABABA;
-      /* color: #8FC549; */
+      color: ${(props) => (props.color ? '#8FC549' : '#BABABA')};
       margin-bottom: 28px;
-
   }
   p{
       font-size: 18px;
@@ -82,18 +80,6 @@ const Body = styled.div`
     justify-content: space-between;
     align-items: center;
   }
-`;
-
-const NewHabitButton = styled.button`
-  width: 40px;
-  height: 35px;
-  background-color: #52B6FF;
-  color: white;
-  font-size: 27px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 5px;
 `;
 
 const HabitContainer = styled.div`
@@ -131,18 +117,12 @@ const HabitContainer = styled.div`
       font-size: 20px;
     }
   }
+  margin-bottom: 10px;
 
 `;
-
-const CheckBox = styled.button`
-  width: 69px;
-  height: 69px;
-  background-color: #EBEBEB;
-  border: 1px solid #E7E7E7;
-  border-radius: 5px;
-  
+const Subheading = styled.div`
+  margin-bottom: 20px;
 `;
-
 export {
-  Login, Form, Body, NewHabitButton, HabitContainer, CheckBox,
+  Login, Form, Body, HabitContainer, Subheading,
 };

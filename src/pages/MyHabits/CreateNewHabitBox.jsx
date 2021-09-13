@@ -86,7 +86,7 @@ const HabitContainer = styled.div`
   min-height: 180px;
   padding: 18px 18px 15px 19px;
   border-radius: 5px;
-  margin: 20px 0px 30px 0px;
+  /* margin: 20px 0px 30px 0px; */
   display: flex;
   flex-direction: column;
   align-items: flex-start !important;

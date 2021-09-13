@@ -18,12 +18,8 @@ function getTodayHabits(config) {
   return axios.get(`${BASE_URL}/today`, config);
 }
 
-function postHabitAsCheck(id, config) {
-  return axios.delete(`${BASE_URL}/${id}/check`, {}, config);
-}
-
-function postHabitAsUncheck(id, config) {
-  return axios.delete(`${BASE_URL}/${id}/uncheck`, {}, config);
+function postHabitAsCheckOrUncheck(id, config, action) {
+  return axios.post(`${BASE_URL}/${id}/${action}`, {}, config);
 }
 
 function getHabitsHistory(config) {
@@ -35,7 +31,6 @@ export {
   getHabits,
   deleteHabit,
   getTodayHabits,
-  postHabitAsCheck,
-  postHabitAsUncheck,
+  postHabitAsCheckOrUncheck,
   getHabitsHistory,
 };
