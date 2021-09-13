@@ -6,18 +6,13 @@ export default function useLocalStorage(key, data) {
       const item = window.localStorage.getItem(key);
       return item ? JSON.parse(item) : data;
     } catch (error) {
-      console.log(error);
       return data;
     }
   });
 
   function setValue(value) {
-    try {
-      setState(value);
-      window.localStorage.setItem(key, JSON.stringify(value));
-    } catch (error) {
-      console.log(error);
-    }
+    setState(value);
+    window.localStorage.setItem(key, JSON.stringify(value));
   }
 
   return [state, setValue];

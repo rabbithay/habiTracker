@@ -1,7 +1,6 @@
-/* eslint-disable react/jsx-no-bind */
+/* eslint-disable no-param-reassign */
 /* eslint-disable react/prop-types */
-/* eslint-disable no-debugger */
-
+/* eslint-disable react/jsx-no-bind */
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import ThreeDotsLoader from '../shared/Loader';
@@ -14,7 +13,6 @@ export default function CreateNewHabitBox({
   const [loading, setLoading] = useState(false);
 
   function updatedDays(day) {
-    // eslint-disable-next-line no-param-reassign
     day.clicked = !day.clicked;
     setWeek([...week]);
   }
@@ -27,9 +25,6 @@ export default function CreateNewHabitBox({
     };
     postHabit(body, config).then(() => {
       renderMyHabits();
-    }).catch((error) => {
-      console.log(error);
-      alert('ocorreu um erro. por favor, tente novamente.');
     }).finally(() => {
       setLoading(false);
     });

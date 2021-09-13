@@ -40,12 +40,12 @@ export default function Today() {
     getTodayHabits(config).then((response) => {
       setTodayHabitList(response.data);
       calculateDoneHabits(response.data);
-    }).catch((e) => {
-      console.log(e);
+    }).catch(() => {
+      // none
     });
   }
 
-  useEffect(() => { renderTodayHabit(); console.log(doneHabits); }, [percent, doneHabits]);
+  useEffect(() => { renderTodayHabit(); }, [percent, doneHabits]);
 
   return (
     <div>
@@ -61,7 +61,12 @@ export default function Today() {
           )
           : <h3>Nenhum hábito concluído ainda</h3>}
         {todayHabitList && todayHabitList.map((habit) => (
-          <TodayHabit habit={habit} config={config} renderTodayHabit={renderTodayHabit} />
+          <TodayHabit
+            key={habit.id}
+            habit={habit}
+            config={config}
+            renderTodayHabit={renderTodayHabit}
+          />
         ))}
       </Body>
       <Menu />

@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import {
+  BrowserRouter as Router, Switch, Route,
+} from 'react-router-dom';
 import GlobalStyle from './assets/GlobalStyle';
 import Percent from './context/Percentext';
 import UserContext from './context/UserContext';
@@ -15,6 +17,14 @@ import {
 function App() {
   const [user, setUser] = useLocalStorage('@trackit-user', {});
   const [percent, setPercent] = useState(0);
+
+  // const location = useLocation();
+  // const history = useHistory();
+  // React.useEffect(() => {
+  //   if (location.pathname !== '/' && location.pathname !== 'cadastro' && !user) {
+  //     history.push('/');
+  //   }
+  // }, [location]);
 
   return (
     <Router>

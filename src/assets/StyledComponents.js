@@ -14,7 +14,6 @@ const Login = styled.div`
     color: #52B6FF;
     text-decoration-line: underline;
   }
-  
 `;
 
 const Form = styled.form`
