@@ -1,5 +1,8 @@
 # habiTracker
 
+<p align="center">
+  <img src="public/calendar.ico" width="175" alt="calendar" />
+</p> 
 
 ## About
 
@@ -8,13 +11,13 @@ An application for creating and tracking habits!
 
 ## Features 
 
-- [] register and login on the website 
-- [] see the list of your registered habits
-- [] create a new habit and choose the days of the week it will be repeated
-- [] erase a habit
-- [] see today's habits
-- [] mark today's habit as completed or not completed
-- [] see the progress of the habits of the day in the progress bar 
+- [x] register and login on the website 
+- [x] see the list of your registered habits
+- [x] create a new habit and choose the days of the week it will be repeated
+- [x] erase a habit
+- [x] see today's habits
+- [x] mark today's habit as completed or not completed
+- [x] see the progress of the habits of the day in the progress bar 
 - [] view the habit history of other days in calendar format
 
 
