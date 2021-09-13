@@ -1,8 +1,8 @@
 # habiTracker
 
-<p align="center">
+<!-- <p align="center">
   <img src="public/calendar.ico" width="175" alt="calendar" />
-</p> 
+</p>  -->
 
 ## About
 
