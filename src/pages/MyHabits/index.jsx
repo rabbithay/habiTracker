@@ -13,6 +13,15 @@ export default function MyHabits() {
   const [habitsList, setHabitsList] = useState([]);
   const [openNewHabitBox, setOpenNewHabitBox] = useState(false);
   const config = useAuthConfig();
+  const [habitName, setHabitName] = useState('');
+  const [week, setWeek] = useState([
+    { day: 'D', clicked: false },
+    { day: 'S', clicked: false },
+    { day: 'T', clicked: false },
+    { day: 'Q', clicked: false },
+    { day: 'Q', clicked: false },
+    { day: 'S', clicked: false },
+    { day: 'S', clicked: false }]);
 
   function renderMyHabits() {
     getHabits(config).then((response) => {
@@ -44,6 +53,10 @@ export default function MyHabits() {
               renderMyHabits={renderMyHabits}
               setOpenNewHabitBox={setOpenNewHabitBox}
               config={config}
+              habitName={habitName}
+              setHabitName={setHabitName}
+              week={week}
+              setWeek={setWeek}
             />
           ) }
 
