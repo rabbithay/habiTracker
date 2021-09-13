@@ -8,16 +8,9 @@ import ThreeDotsLoader from '../shared/Loader';
 import { postHabit } from '../../services/trackit';
 import Week from '../shared/Week';
 
-export default function CreateNewHabitBox({ setOpenNewHabitBox, renderMyHabits, config }) {
-  const [habitName, setHabitName] = useState('');
-  const [week, setWeek] = useState([
-    { day: 'D', clicked: false },
-    { day: 'S', clicked: false },
-    { day: 'T', clicked: false },
-    { day: 'Q', clicked: false },
-    { day: 'Q', clicked: false },
-    { day: 'S', clicked: false },
-    { day: 'S', clicked: false }]);
+export default function CreateNewHabitBox({
+  setOpenNewHabitBox, renderMyHabits, config, habitName, setHabitName, week, setWeek,
+}) {
   const [loading, setLoading] = useState(false);
 
   function updatedDays(day) {
