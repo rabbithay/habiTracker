@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-no-bind */
 import React, { useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import logo from '../../assets/img/logo.svg';
@@ -19,12 +20,10 @@ export default function SignUp() {
     const body = {
       email, name, image, password,
     };
-    postSignUp(body).then((res) => {
-      console.log(res);
+    postSignUp(body).then(() => {
       history.push('/');
-    }).catch((error) => {
-      console.log(error);
-      alert('erro');
+    }).catch(() => {
+      alert('ocorreu um erro. por favor, tente novamente.');
     }).finally(() => {
       setLoading(false);
     });

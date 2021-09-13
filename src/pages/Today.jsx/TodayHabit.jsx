@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-no-bind */
 /* eslint-disable no-const-assign */
 /* eslint-disable react/prop-types */
 import React from 'react';
@@ -13,9 +14,7 @@ export default function TodayHabit({ habit, config, renderTodayHabit }) {
 
   function setHabitAsDone() {
     const action = (done) ? 'uncheck' : 'check';
-    postHabitAsCheckOrUncheck(id, config, action).catch(() => {
-      alert('ocorreu um erro. por favor, tente novamente.');
-    }).finally(() => {
+    postHabitAsCheckOrUncheck(id, config, action).finally(() => {
       renderTodayHabit();
     });
   }

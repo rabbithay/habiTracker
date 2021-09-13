@@ -7,7 +7,12 @@ export default function Week({ week, updatedDays, loading }) {
   return (
     <WeekBox>
       {week.map((d) => (
-        <DayMarker marker={d} loading={loading} updatedDays={updatedDays || (() => {})} />
+        <DayMarker
+          marker={d}
+          key={d.id}
+          loading={loading}
+          updatedDays={updatedDays || (() => {})}
+        />
       ))}
     </WeekBox>
   );

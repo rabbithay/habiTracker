@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-no-bind */
 import React, { useContext, useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import logo from '../../assets/img/logo.svg';
@@ -24,8 +25,6 @@ export default function SignIn() {
     const body = { email, password };
     postLogin(body).then((res) => {
       setUser(res.data);
-    }).catch(() => {
-      alert('ocorreu um erro. por favor, tente novamente.');
     }).finally(() => {
       setLoading(false);
       history.push('/hoje');

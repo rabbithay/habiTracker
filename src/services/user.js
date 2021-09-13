@@ -4,7 +4,6 @@ const BASE_URL = 'https://mock-api.bootcamp.respondeai.com.br/api/v2/trackit/aut
 
 function postSignUp(body) {
   const promise = axios.post(`${BASE_URL}/sign-up`, body);
-  console.log(body, promise);
   return promise;
 }
 

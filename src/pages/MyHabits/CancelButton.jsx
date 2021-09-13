@@ -1,4 +1,4 @@
-/* eslint-disable react/prop-types */
+/* eslint-disable react/jsx-no-bind */
 import React from 'react';
 import styled from 'styled-components';
 

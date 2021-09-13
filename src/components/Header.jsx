@@ -1,10 +1,23 @@
+/* eslint-disable react/jsx-no-bind */
+/* eslint-disable no-restricted-globals */
+/* eslint-disable no-alert */
 import React, { useContext } from 'react';
 import styled from 'styled-components';
+import { useHistory } from 'react-router-dom';
 import UserContext from '../context/UserContext';
 import TrackIt from '../assets/img/TrackIt.svg';
 
 export default function Header() {
-  const { user } = useContext(UserContext);
+  const { user, setUser } = useContext(UserContext);
+  const history = useHistory();
+
+  function logout() {
+    if (confirm('deseja deslogar da sua conta?')) {
+      setUser('');
+    }
+    history.push('/');
+  }
+
   return (
     <TopBar>
       <img
@@ -12,6 +25,7 @@ export default function Header() {
         src={TrackIt}
       />
       <Icon
+        onClick={logout}
         alt="user icon"
         src={user.image}
       />

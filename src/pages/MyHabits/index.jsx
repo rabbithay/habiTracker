@@ -26,8 +26,6 @@ export default function MyHabits() {
   function renderMyHabits() {
     getHabits(config).then((response) => {
       setHabitsList(response.data);
-    }).catch((e) => {
-      console.log(e);
     });
   }
   useEffect(() => { renderMyHabits(); }, []);
@@ -67,7 +65,7 @@ export default function MyHabits() {
               Adicione um hábito para começar a trackear!
             </p>
           )
-          : habitsList.map((h) => <MyHabit habit={h} renderMyHabits={renderMyHabits} />)}
+          : habitsList.map((h) => <MyHabit habit={h} key={h.id} renderMyHabits={renderMyHabits} />)}
       </Body>
       <Menu />
     </>
