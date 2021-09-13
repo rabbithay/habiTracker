@@ -1,8 +1,9 @@
 /* eslint-disable react/jsx-no-bind */
 import React, { useEffect, useState } from 'react';
+import styled from 'styled-components';
 import { getHabits } from '../../services/trackit';
 import Header from '../../components/Header';
-import { Body, NewHabitButton } from '../../assets/StyledComponents';
+import { Body, Subheading } from '../../assets/StyledComponents';
 import Menu from '../../components/Menu';
 import useAuthConfig from '../../hook/authConfig';
 import CreateNewHabitBox from './CreateNewHabitBox';
@@ -26,7 +27,7 @@ export default function MyHabits() {
     <>
       <Header />
       <Body>
-        <div>
+        <Subheading>
           <h2>
             Meus hábitos
           </h2>
@@ -36,7 +37,7 @@ export default function MyHabits() {
           >
             +
           </NewHabitButton>
-        </div>
+        </Subheading>
         {(openNewHabitBox)
           && (
             <CreateNewHabitBox
@@ -59,3 +60,14 @@ export default function MyHabits() {
     </>
   );
 }
+const NewHabitButton = styled.button`
+  width: 40px;
+  height: 35px;
+  background-color: #52B6FF;
+  color: white;
+  font-size: 27px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+`;

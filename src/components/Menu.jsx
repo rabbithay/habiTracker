@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
 import { Link } from 'react-router-dom';
 import Percent from '../context/Percentext';
+import 'react-circular-progressbar/dist/styles.css';
 
 export default function Menu() {
   const { percent } = useContext(Percent);
@@ -53,10 +54,9 @@ const TodayButton = styled.div`
     width: 91px;
     height: 91px;
     z-index: 3;
-    /* margin-bottom: 40px; */
-    /* display: flex;
+    display: flex;
     align-items: center;
-    justify-content: center; */
+    justify-content: center;
     position: fixed;
     bottom: 10px;
     right: calc((100vw - 91px)/2);
