@@ -1,3 +1,5 @@
+/* eslint-disable no-param-reassign */
+/* eslint-disable react/prop-types */
 /* eslint-disable react/jsx-no-bind */
 import React, { useState } from 'react';
 import styled from 'styled-components';
