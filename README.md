@@ -1,7 +1,7 @@
 # habiTracker
 
 <p align="center">
-  <img src="public/calendar.ico" width="175" alt="calendar" />
+  <img src="public/habitracker.ico" width="175" alt="calendar" />
 </p> 
 
 ## About
