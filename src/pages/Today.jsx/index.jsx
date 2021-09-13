@@ -22,7 +22,7 @@ export default function Today() {
   const [doneHabits, setDoneHabits] = useState(0);
 
   function calculatePercent(howManyHabits) {
-    setPercent((doneHabits / howManyHabits) * 100);
+    setPercent((doneHabits / howManyHabits) * 100).tofixed(2);
   }
 
   function calculateDoneHabits(habits) {
@@ -55,7 +55,7 @@ export default function Today() {
         {(doneHabits)
           ? (
             <h3>
-              {percent}
+              {Math.round(Number(percent, 10))}
               % dos hábitos concluídos
             </h3>
           )
