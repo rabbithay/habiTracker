@@ -1,3 +1,4 @@
+/* eslint-disable no-shadow */
 /* eslint-disable react/jsx-no-bind */
 import React, { useContext, useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
@@ -19,15 +20,23 @@ export default function SignIn() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  function confirmLogin(e) {
-    e.preventDefault();
+  function confirmLogin(event) {
+    event.preventDefault();
     setLoading(true);
     const body = { email, password };
     postLogin(body).then((res) => {
       setUser(res.data);
+      history.push('/hoje');
+    }).catch((error) => {
+      switch (error.response.status) {
+        case (422):
+          alert('usuário ou senha incorretos');
+          break;
+        default:
+          alert('ocorreu um erro. por favor, recarregue a página.');
+      }
     }).finally(() => {
       setLoading(false);
-      history.push('/hoje');
     });
   }
 
