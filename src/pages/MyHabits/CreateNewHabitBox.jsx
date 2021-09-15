@@ -39,6 +39,15 @@ export default function CreateNewHabitBox({
       setLoading(false);
     });
     setOpenNewHabitBox(false);
+    setHabitName('');
+    setWeek([
+      { day: 'D', clicked: false },
+      { day: 'S', clicked: false },
+      { day: 'T', clicked: false },
+      { day: 'Q', clicked: false },
+      { day: 'Q', clicked: false },
+      { day: 'S', clicked: false },
+      { day: 'S', clicked: false }]);
   }
   function cancelButton() {
     setOpenNewHabitBox(false);
