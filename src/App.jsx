@@ -18,14 +18,6 @@ function App() {
   const [user, setUser] = useLocalStorage('@trackit-user', {});
   const [percent, setPercent] = useState(0);
 
-  // const location = useLocation();
-  // const history = useHistory();
-  // React.useEffect(() => {
-  //   if (location.pathname !== '/' && location.pathname !== 'cadastro' && !user) {
-  //     history.push('/');
-  //   }
-  // }, [location]);
-
   return (
     <Router>
       <UserContext.Provider value={{ user, setUser }}>

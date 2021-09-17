@@ -1,3 +1,5 @@
+/* eslint-disable array-callback-return */
+/* eslint-disable consistent-return */
 /* eslint-disable no-param-reassign */
 /* eslint-disable react/prop-types */
 /* eslint-disable react/jsx-no-bind */
@@ -18,17 +20,34 @@ export default function CreateNewHabitBox({
   }
   function saveNewHabit() {
     setLoading(true);
-    const selectedDays = week.filter((d) => (d.clicked)).map((d, i) => i);
+    const selectedDays = [];
+    week.map((d) => (d.clicked)).forEach((d, i) => {
+      if (d) {
+        selectedDays.push(i);
+      }
+    });
     const body = {
       name: habitName,
       days: selectedDays,
     };
     postHabit(body, config).then(() => {
       renderMyHabits();
+    }).catch((error) => {
+      console.log(error);
+      alert('ocorreu um erro. por favor, tente novamente.');
     }).finally(() => {
       setLoading(false);
     });
     setOpenNewHabitBox(false);
+    setHabitName('');
+    setWeek([
+      { day: 'D', clicked: false },
+      { day: 'S', clicked: false },
+      { day: 'T', clicked: false },
+      { day: 'Q', clicked: false },
+      { day: 'Q', clicked: false },
+      { day: 'S', clicked: false },
+      { day: 'S', clicked: false }]);
   }
   function cancelButton() {
     setOpenNewHabitBox(false);
