@@ -58,7 +58,7 @@ export default function MyHabits() {
             />
           ) }
 
-        {(habitsList.length === 0)
+        {(habitsList.length === 0 && !openNewHabitBox)
           ? (
             <p>
               Você não tem nenhum hábito cadastrado ainda.
